@@ -1,4 +1,3 @@
-
 #include "workspace_app.h"
 
 void activate_application(GtkApplication *app, gpointer user_data) {
@@ -10,12 +9,18 @@ void activate_application(GtkApplication *app, gpointer user_data) {
     GdkPixbuf *icon;
     icon = gdk_pixbuf_new_from_file("resources/image.png", NULL);
     gtk_window_set_icon (GTK_WINDOW(app_data->main_window), icon);
+
+    or 
+
+    gtk_window_set_default_icon(icon);
     */
     gtk_window_set_position(GTK_WINDOW(app_data->main_window), GTK_WIN_POS_CENTER);
     
     app_data->workspace_loaded = FALSE;
     app_data->welcome_screen = NULL;
     app_data->workspace_view = NULL;
+
+    init_macro_system(app_data);
     
     show_welcome_screen(app_data);
 }

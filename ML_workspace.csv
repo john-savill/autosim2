@@ -1,0 +1,49 @@
+Section,Type,WindowIndex,WindowTitle,ControlIndex,ControlType,ControlName,Value,MinValue,MaxValue
+WORKSPACE,METADATA,-1,ML Workspace,5,-,-,-,-,-
+WINDOW,HEADER,0,Lambda 1,7,-,-,-,-,-
+CONTROL,DATA,0,Lambda 1,0,SWITCH,o2sens1_active,0,-,-
+CONTROL,DATA,0,Lambda 1,1,HSLIDER,o2sens1_min_volt,0.05,0,1
+CONTROL,DATA,0,Lambda 1,2,HSLIDER,o2sens1_max_volt,0.95,0,1
+CONTROL,DATA,0,Lambda 1,3,HSLIDER,o2sens1_rich_time,200,0,5000
+CONTROL,DATA,0,Lambda 1,4,HSLIDER,o2sens1_lean_time,200,0,5000
+CONTROL,DATA,0,Lambda 1,5,HSLIDER,o2sens1_lrsw_time,50,0,5000
+CONTROL,DATA,0,Lambda 1,6,HSLIDER,o2sens1_rlsw_time,50,0,5000
+WINDOW,HEADER,1,Lambda 2,7,-,-,-,-,-
+CONTROL,DATA,1,Lambda 2,0,SWITCH,o2sens2_active,0,-,-
+CONTROL,DATA,1,Lambda 2,1,HSLIDER,o2sens2_min_volt,0.05,0,1
+CONTROL,DATA,1,Lambda 2,2,HSLIDER,o2sens2_max_volt,0.95,0,1
+CONTROL,DATA,1,Lambda 2,3,HSLIDER,o2sens2_rich_time,200,0,5000
+CONTROL,DATA,1,Lambda 2,4,HSLIDER,o2sens2_lean_time,200,0,5000
+CONTROL,DATA,1,Lambda 2,5,HSLIDER,o2sens2_lrsw_time,50,0,5000
+CONTROL,DATA,1,Lambda 2,6,HSLIDER,o2sens2_rlsw_time,50,0,5000
+WINDOW,HEADER,2,Gear,17,-,-,-,-,-
+CONTROL,DATA,2,Gear,0,SWITCH,gear_override,0,-,-
+CONTROL,DATA,2,Gear,1,HSLIDER,gear_number,0,0,6
+CONTROL,DATA,2,Gear,2,HSLIDER,gear_override_val,0.25,0,5
+CONTROL,DATA,2,Gear,3,HSLIDER,gear_1_ratio,,0,20
+CONTROL,DATA,2,Gear,4,HSLIDER,gear_2_ratio,,0,20
+CONTROL,DATA,2,Gear,5,HSLIDER,gear_3_ratio,,0,20
+CONTROL,DATA,2,Gear,6,HSLIDER,gear_4_ratio,,0,20
+CONTROL,DATA,2,Gear,7,HSLIDER,gear_5_ratio,,0,20
+CONTROL,DATA,2,Gear,8,HSLIDER,gear_6_ratio,,0,20
+CONTROL,DATA,2,Gear,9,HSLIDER,gear_ratio,,0,20
+CONTROL,DATA,2,Gear,10,HSLIDER,neutral_voltage,0.25,0,5
+CONTROL,DATA,2,Gear,11,HSLIDER,gear_1_voltage,1,0,5
+CONTROL,DATA,2,Gear,12,HSLIDER,gear_2_voltage,1.75,0,5
+CONTROL,DATA,2,Gear,13,HSLIDER,gear_3_voltage,2.5,0,5
+CONTROL,DATA,2,Gear,14,HSLIDER,gear_4_voltage,3.25,0,5
+CONTROL,DATA,2,Gear,15,HSLIDER,gear_5_voltage,4,0,5
+CONTROL,DATA,2,Gear,16,HSLIDER,gear_6_voltage,4.75,0,5
+WINDOW,HEADER,3,Speed,9,-,-,-,-,-
+CONTROL,DATA,3,Speed,0,HSLIDER,imap_angle,530,1,720
+CONTROL,DATA,3,Speed,1,HSLIDER,imap_min_volt,1,0,5
+CONTROL,DATA,3,Speed,2,HSLIDER,imap_max_volt,0.5,0,5
+CONTROL,DATA,3,Speed,3,HSLIDER,tps_volt,0.5,0,5
+CONTROL,DATA,3,Speed,4,HSLIDER,hgs_volt,0.5,0,5
+CONTROL,DATA,3,Speed,5,SWITCH,veh_spd_override,0,-,-
+CONTROL,DATA,3,Speed,6,HSLIDER,veh_spd_override_val,0,0,500
+CONTROL,DATA,3,Speed,7,HSLIDER,vehicle_speed,0,0,500
+CONTROL,DATA,3,Speed,8,HSLIDER,engine_speed,0,0,10000
+WINDOW,HEADER,4,Switches,2,-,-,-,-,-
+CONTROL,DATA,4,Switches,0,SWITCH,killsw,0,-,-
+CONTROL,DATA,4,Switches,1,SWITCH,startsw,0,-,-

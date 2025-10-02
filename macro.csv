@@ -1,0 +1,10 @@
+MacroName,ActionType,TargetName,Value,DelayMS
+Demo Sequence,SWITCH_ON,Main Power,-,1000
+Demo Sequence,BUTTON_CLICK,Start Process,-,500
+Demo Sequence,SLIDER_SET,Speed Control,75,500
+Demo Sequence,SWITCH_ON,Auto Mode,-,1000
+Demo Sequence,WAIT,-,2000,100
+Demo Sequence,SLIDER_SET,Power Level,50,500
+Demo Sequence,SWITCH_OFF,Auto Mode,-,1000
+Demo Sequence,BUTTON_CLICK,Stop Process,-,500
+Demo Sequence,SWITCH_OFF,Main Power,-,500

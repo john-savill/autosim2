@@ -1,4 +1,3 @@
-
 #include "workspace_app.h"
 
 GtkWidget *create_welcome_screen(AppData *app_data) {
@@ -7,7 +6,7 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
     
     // Title
     GtkWidget *title = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(title), "<span size='24000' weight='bold'>Low Level ECU Simulator Alpha\nV0.01\nDeveloped by John Savill</span>");
+    gtk_label_set_markup(GTK_LABEL(title), "<span size='24000' weight='bold'>Low Level ECU Simulator Alpha\nV0.10\nDeveloped by John Savill</span>");
     gtk_widget_set_halign(title, GTK_ALIGN_CENTER);
     gtk_box_pack_start(GTK_BOX(vbox), title, FALSE, FALSE, 20);
 
@@ -27,7 +26,8 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
         "Current Features:\n"
         "• Save workspace configurations to external files\n"
         "• Load previously saved workspaces\n"
-        "• Front end interface\n"
+        "• Front end interface with buttons, sliders, and switches\n"
+        "• Macro running\n"
     );
     gtk_label_set_justify(GTK_LABEL(description), GTK_JUSTIFY_CENTER);
     gtk_widget_set_halign(description, GTK_ALIGN_CENTER);
@@ -61,7 +61,7 @@ void on_new_workspace_clicked(GtkWidget *widget, gpointer data) {
     create_default_workspace(app_data);
     app_data->workspace_loaded = TRUE;
     show_workspace_view(app_data);
-    create_workspace_from_definition(app_data);
+    // REMOVED: create_workspace_from_definition(app_data); - Let workspace_view handle this
 }
 
 void on_load_workspace_clicked(GtkWidget *widget, gpointer data) {
@@ -76,8 +76,8 @@ void on_load_workspace_clicked(GtkWidget *widget, gpointer data) {
     
     // Add file filter for workspace files
     GtkFileFilter *filter = gtk_file_filter_new();
-    gtk_file_filter_set_name(filter, "Workspace Files (*.txt)");
-    gtk_file_filter_add_pattern(filter, "*.txt");
+    gtk_file_filter_set_name(filter, "Workspace Files (*.csv)");
+    gtk_file_filter_add_pattern(filter, "*.csv");
     gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
     
     gint result = gtk_dialog_run(GTK_DIALOG(dialog));
@@ -88,7 +88,7 @@ void on_load_workspace_clicked(GtkWidget *widget, gpointer data) {
         if (load_workspace_simple(app_data, filename)) {
             app_data->workspace_loaded = TRUE;
             show_workspace_view(app_data);
-            create_workspace_from_definition(app_data);
+            // REMOVED: create_workspace_from_definition(app_data); - Let workspace_view handle this
             g_print("Workspace loaded successfully from: %s\n", filename);
         } else {
             GtkWidget *error_dialog = gtk_message_dialog_new(GTK_WINDOW(app_data->main_window),

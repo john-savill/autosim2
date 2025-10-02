@@ -1,0 +1,16 @@
+Section,Type,WindowIndex,WindowTitle,ControlIndex,ControlType,ControlName,Value,MinValue,MaxValue
+WORKSPACE,METADATA,-1,Industrial Control System,3,-,-,-,-,-
+WINDOW,HEADER,0,Motor Control,7,-,-,-,-,-
+CONTROL,DATA,0,Motor Control,0,BUTTON,Start Motor,-,-,-
+CONTROL,DATA,0,Motor Control,1,BUTTON,Stop Motor,-,-,-
+CONTROL,DATA,0,Motor Control,2,BUTTON,Emergency Stop,-,-,-
+CONTROL,DATA,0,Motor Control,3,HSLIDER,Motor Speed,1500.00,0.00,3000.00
+CONTROL,DATA,0,Motor Control,4,VSLIDER,Torque Limit,75.00,0.00,100.00
+CONTROL,DATA,0,Motor Control,5,SWITCH,Main Power,0,-,-
+CONTROL,DATA,0,Motor Control,6,SWITCH,Auto Mode,1,-,-
+WINDOW,HEADER,1,Temperature Control,5,-,-,-,-,-
+CONTROL,DATA,1,Temperature Control,0,BUTTON,Heater On,-,-,-
+CONTROL,DATA,1,Temperature Control,1,BUTTON,Heater Off,-,-,-
+CONTROL,DATA,1,Temperature Control,2,HSLIDER,Target Temperature,25.00,0.00,100.00
+CONTROL,DATA,1,Temperature Control,3,VSLIDER,Fan Speed,50.00,0.00,100.00
+CONTROL,DATA,1,Temperature Control,4,SWITCH,Monitor Enable,1,-,-
