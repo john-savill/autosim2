@@ -1,4 +1,3 @@
-
 ![Logo](resources/image.png)
 
 # INFO
@@ -18,7 +17,7 @@ Automotive simulator application, built with gtk.
 
 (in no particular order)
 
- - Logo for app
+ - Logo for app, taskbar
  - Correct demo workspaces setup
  - Demonstration macros
  - Ability to edit workspaces in-app
@@ -27,6 +26,9 @@ Automotive simulator application, built with gtk.
  - Back-end interfaces
  - Settings interface
  - Communication interface
+ - EOL tester app
+ - Licence management
+ - Docker container build
 
 ## Build Information
 
