@@ -1,4 +1,4 @@
-![Logo](resources/image.png)
+![Logo](resources/image_scaled.png)
 
 # INFO
 
