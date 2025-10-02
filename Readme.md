@@ -32,24 +32,28 @@ Automotive simulator application, built with gtk.
 
 ## Build Information
 
-build with:
-
+Install dependencies with:
+```
+make install-deps
+```
+Build application with: 
 ```
 make
 ```
 (will also make the independent macro_runner, review [Readme_macro.md](ind_macro/Readme_macro.md) for some more explanation)
 
-run with 
-
+Run with:
 ```
 ./autosim
 ```
 
-## Use Information
+## User Information
 
  - New workspace will load a default workspace and interface
 
  - Load workspace is used to load a .csv defined workspace
+
+ - To run Macro it must be loaded in the workspace with corresponding controls
 
 ## Licence/ Declaration
 
