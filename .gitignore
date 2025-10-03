@@ -1,4 +1,6 @@
-autosim
+autosim2
 macro_runner
+gpio_backend_test
 windows_note.md
+controls copy.c
 .vscode
