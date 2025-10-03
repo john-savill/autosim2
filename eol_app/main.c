@@ -1,11 +1,11 @@
-#include "workspace_app.h"
+#include "eol_app.h"
 
 int main(int argc, char **argv) {
     GtkApplication *app;
     int status;
     AppData app_data = {0};
     
-    app = gtk_application_new("autosim2.alpha", G_APPLICATION_FLAGS_NONE); //G_APPLICATION_FLAGS_NONE is depr
+    app = gtk_application_new("eol_tester.alpha", G_APPLICATION_FLAGS_NONE); //G_APPLICATION_FLAGS_NONE is depr
     g_signal_connect(app, "activate", G_CALLBACK(activate_application), &app_data);
     
     status = g_application_run(G_APPLICATION(app), argc, argv);

@@ -1,36 +1,54 @@
+# Compiler and flags
 CC = gcc
-CFLAGS = `pkg-config --cflags gtk+-3.0` -Wall -g
-LIBS = `pkg-config --libs gtk+-3.0`
-TARGET = autosim
-MACRO_TARGET = macro_runner
+CFLAGS_GUI = `pkg-config --cflags gtk+-3.0` -Wall -g -Ibackend
+CFLAGS_BACKEND = -Wall -g -O2 -pthread
+CFLAGS_MACRO = -Wall -g
+LIBS_GUI = `pkg-config --libs gtk+-3.0` -pthread -lrt
+LIBS_BACKEND = -pthread -lrt
 
-# Headless macro runner sources
+# Target executables
+TARGET_APP = autosim2
+TARGET_BACKEND = gpio_backend_test
+TARGET_MACRO = macro_runner
+
+# Source files
+GUI_SOURCES = autosim_app/main.c autosim_app/workspace_app.c autosim_app/welcome_sceen.c autosim_app/workspace_view.c autosim_app/controls.c autosim_app/file_operations.c autosim_app/macro.c
+
+BACKEND_SOURCES = backend/gpio_backend.c backend/frontend_bridge.c
+BACKEND_TEST_SOURCES = backend/backend_test.c backend/gpio_backend.c
 MACRO_SOURCES = ind_macro_app/macro_runner.c
-MACRO_OBJECTS = ind_macro_app/macro_runner.o
 
-all: $(TARGET) $(MACRO_TARGET)
+# Default target - build all applications
+all: $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO)
 
-# Full Autosim App
-$(TARGET):
-	$(CC) $(CFLAGS) -o $(TARGET) autosim_app/*.c $(LIBS)
+# GUI Application (with backend integration)
+$(TARGET_APP): $(GUI_SOURCES) $(BACKEND_SOURCES)
+	$(CC) $(CFLAGS_GUI) -o $(TARGET_APP) $(GUI_SOURCES) $(BACKEND_SOURCES) $(LIBS_GUI)
 
-# Headless Macro Runner
-$(MACRO_TARGET): $(MACRO_OBJECTS)
-	$(CC) $(MACRO_OBJECTS) -o $(MACRO_TARGET)
+# Backend test application
+$(TARGET_BACKEND): $(BACKEND_TEST_SOURCES)
+	$(CC) $(CFLAGS_BACKEND) -o $(TARGET_BACKEND) $(BACKEND_TEST_SOURCES) $(LIBS_BACKEND)
 
-macro_runner.o: ind_macro_app/macro_runner.c ind_macro_app/macro_runner.h
-	$(CC) -Wall -g -c ind_macro_app/macro_runner.c -o ind_macro_app/macro_runner.o
+# Headless macro runner
+$(TARGET_MACRO): $(MACRO_SOURCES)
+	$(CC) $(CFLAGS_MACRO) -o $(TARGET_MACRO) $(MACRO_SOURCES)
 
-# Remove object files and executables
+# Clean
 clean:
-	rm -f $(TARGET) *.o $(MACRO_TARGET) $(MACRO_OBJECTS)
+	rm -f $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO)
 
 # Install dependencies
 install-deps:
-	sudo apt install libgtk-3-dev pkg-config
+	sudo apt install libgtk-3-dev pkg-config build-essential
 
-# Run the autosim application
-run: $(TARGET)
-	./$(TARGET)
+# Test targets
+gui: $(TARGET_APP)
+	./$(TARGET_APP)
 
-.PHONY: all macro_runner clean install-deps run
+test-backend: $(TARGET_BACKEND)
+	sudo ./$(TARGET_BACKEND)
+
+test-macro: $(TARGET_MACRO)
+	./$(TARGET_MACRO) sample_headless_macro.csv
+
+.PHONY: all clean install-deps gui test-backend test-macro

@@ -7,7 +7,7 @@ void activate_application(GtkApplication *app, gpointer user_data) {
     gtk_window_set_default_size(GTK_WINDOW(app_data->main_window), 900, 700);
     /*
     GdkPixbuf *icon;
-    icon = gdk_pixbuf_new_from_file("resources/image.png", NULL);
+    icon = gdk_pixbuf_new_from_file("resources/autosim_logo.png", NULL);
     gtk_window_set_icon (GTK_WINDOW(app_data->main_window), icon);
 
     or 

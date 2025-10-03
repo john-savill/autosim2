@@ -1,8 +1,10 @@
-![Logo](resources/image_scaled.png)
+![Logo](resources/autosim_logo_scaled.png)
 
 # INFO
 
 Automotive simulator application, built with gtk.
+
+Currently for Linux OS only
 
 ## Development Information
 
@@ -12,6 +14,7 @@ Automotive simulator application, built with gtk.
 |---|---|---|
 | 0.01 | 29/09/2025 | Initial workspace interface |
 | 0.10 | 02/10/2025 | Workspace interface with macros, demonstration workspace, no backend |
+|0.20 | 03/10/2025 | Sample backend GPIO development |
 
 ### In-development list
 
@@ -29,6 +32,8 @@ Automotive simulator application, built with gtk.
  - EOL tester app
  - Licence management
  - Docker container build
+ - Windows compatibility
+ - Button/ switch identifier
 
 ## Build Information
 

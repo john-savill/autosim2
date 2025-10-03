@@ -13,8 +13,8 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
     // Image
     GtkWidget *image;
     GdkPixbuf *pixbuf, *scaled_pixbuf;
-    image = gtk_image_new_from_file("resources/image.png");
-    pixbuf = gdk_pixbuf_new_from_file("resources/image.png", NULL);
+    image = gtk_image_new_from_file("resources/autosim_logo.png");
+    pixbuf = gdk_pixbuf_new_from_file("resources/autosim_logo.png", NULL);
     scaled_pixbuf = gdk_pixbuf_scale_simple(pixbuf, 200, 200, GDK_INTERP_BILINEAR);
     image = gtk_image_new_from_pixbuf(scaled_pixbuf);
     gtk_box_pack_start(GTK_BOX(vbox), image, TRUE, TRUE, 0);
