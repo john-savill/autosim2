@@ -3,4 +3,5 @@ macro_runner
 gpio_backend_test
 windows_note.md
 controls copy.c
+Real-Time GPIO Backend for Raspberry Pi.md
 .vscode

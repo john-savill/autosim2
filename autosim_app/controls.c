@@ -1,4 +1,5 @@
 #include "workspace_app.h"
+#include "frontend_bridge.h"
 
 void on_button_clicked(GtkWidget *widget, gpointer data) {
     const char *button_name = (const char *)data;
@@ -12,6 +13,9 @@ void on_button_clicked(GtkWidget *widget, gpointer data) {
     } else if (g_strcmp0(button_name, "Emergency Stop") == 0) {
         g_print("EMERGENCY STOP ACTIVATED!\n");
     }
+
+    // Backend Integration
+    bridge_button_clicked(button_name);
 }
 
 void on_scale_changed(GtkRange *range, gpointer data) {
@@ -25,6 +29,9 @@ void on_scale_changed(GtkRange *range, gpointer data) {
     } else if (g_strcmp0(scale_name, "Temperature") == 0) {
         g_print("Setting temperature to %.1f°C\n", value);
     }
+
+    // Backend Integration
+    bridge_control_updated(scale_name, value);
 }
 
 void on_switch_toggled(GtkToggleButton *toggle_button, gpointer data) {
@@ -49,4 +56,7 @@ void on_switch_toggled(GtkToggleButton *toggle_button, gpointer data) {
             g_print("Manual mode enabled\n");
         }
     }
+
+    // Backend Integration
+    bridge_switch_toggled(switch_name, is_active);
 }
