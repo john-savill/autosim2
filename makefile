@@ -8,8 +8,11 @@ LIBS_BACKEND = -pthread -lrt
 
 # Target executables
 TARGET_APP = autosim2
+TARGET_APP_WINDOWS = windows_autosim2
 TARGET_BACKEND = gpio_backend_test
 TARGET_MACRO = macro_runner
+
+# TARGET_EOL = eol_tester
 
 # Source files
 GUI_SOURCES = autosim_app/main.c autosim_app/workspace_app.c autosim_app/welcome_sceen.c autosim_app/workspace_view.c autosim_app/controls.c autosim_app/file_operations.c autosim_app/macro.c
@@ -33,13 +36,17 @@ $(TARGET_BACKEND): $(BACKEND_TEST_SOURCES)
 $(TARGET_MACRO): $(MACRO_SOURCES)
 	$(CC) $(CFLAGS_MACRO) -o $(TARGET_MACRO) $(MACRO_SOURCES)
 
+# Windows Target executable
+$(TARGET_APP_WINDOWS): $(GUI_SOURCES)
+	x86_64-w64-mingw32-gcc pkg-config --cflags --libs gtk+-3.0 -o autosim2.exe $(GUI_SOURCES)
+
 # Clean
 clean:
 	rm -f $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO)
 
 # Install dependencies
 install-deps:
-	sudo apt install libgtk-3-dev pkg-config build-essential
+	sudo apt install libgtk-3-dev pkg-config build-essential mingw-w64 gcc-mingw-w64 mingw-w64-tools
 
 # Test targets
 gui: $(TARGET_APP)
@@ -51,4 +58,5 @@ test-backend: $(TARGET_BACKEND)
 test-macro: $(TARGET_MACRO)
 	./$(TARGET_MACRO) sample_headless_macro.csv
 
-.PHONY: all clean install-deps gui test-backend test-macro
+# Ensure this is up to date and all potential make options are included 
+.PHONY: all clean install-deps gui test-backend test-macro windows_autosim2

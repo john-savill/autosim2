@@ -38,6 +38,7 @@ Beyond:
  - Docker container build
  - GitLab integration
  - EOL tester app
+ - Logs
 
 ## Build Information
 
@@ -58,11 +59,13 @@ Run with:
 
 ## User Information
 
- - New workspace will load a default workspace and interface
+ - New workspace will load a default workspace and interface.
 
- - Load workspace is used to load a .csv defined workspace
+ - Load workspace is used to load a .csv defined workspace.
 
- - To run Macro it must be loaded in the workspace with corresponding controls
+ - To run Macro it must be loaded in the workspace with corresponding controls.
+
+ - Controlscan be interacted with and will de logged in the terminal fo checking/ debugging.
 
 ## Licence/ Declaration
 
