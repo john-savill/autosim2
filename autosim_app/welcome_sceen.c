@@ -6,7 +6,7 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
     
     // Title
     GtkWidget *title = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(title), "<span size='24000' weight='bold'>Low Level ECU Simulator Alpha\nV0.10\nDeveloped by John Savill</span>");
+    gtk_label_set_markup(GTK_LABEL(title), "<span size='24000' weight='bold'>Low Level ECU Simulator Alpha\nV0.20\nDeveloped by John Savill</span>");
     gtk_widget_set_halign(title, GTK_ALIGN_CENTER);
     gtk_box_pack_start(GTK_BOX(vbox), title, FALSE, FALSE, 20);
 

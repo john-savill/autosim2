@@ -255,9 +255,10 @@ void application_information(GtkWidget *widget, gpointer data) {
         GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
         GTK_MESSAGE_INFO,
         GTK_BUTTONS_OK,
-        "Application v0.10\n\n"
-        "This application is in the alpha version and currently\n"
-        "contains just the front end interface.\n\n"
+        "Application v0.20\n\n"
+        "This application is in the alpha version\n\n"
+        "Current help can be found in the GitHub/ online Readme:\n"
+        "https://github.com/john-savill/autosim2\n\n"
         "It is in development as of Q3 2025\n\n- John\n\n"
         "Built with GTK+ 3.0 for Ubuntu Linux"
     );
