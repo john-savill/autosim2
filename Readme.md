@@ -46,7 +46,7 @@ make
 
 Run with:
 ```
-./autosim
+./autosim2
 ```
 
 ## User Information
