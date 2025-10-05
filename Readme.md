@@ -18,39 +18,19 @@ Currently for Linux OS only
 
 ### Development list
 
-Developed:
- - Makefile
- - Basic frontend UI
- - Loading worksapces from easy file format
- - Controls interface
- - Workspace interface/ menu bar
- - Descriptive files
- - Macro controls
-   - Headless macro-runner
- - Initial backend integration
- - Demonstration workspace(s) and macro
-
-(in no particular order)
 For V1:
- - Logo for app, taskbar
- - Correct demo workspaces setup
- - Demonstration macros
- - Test backend interfaces (linked to below)
- - Communication interface
- - Settings interface
- - Windows compatibility
- - Button/ switch identifier
- - Relevant documentation
 
-Beyond: 
- - Ability to edit workspaces in-app
- - Macro creation in app
- - Macro recording
- - Licence management
- - Docker container build
- - GitLab integration
- - EOL tester app
- - Logs
+| __Developed__ | Testing | In Development (no particular order) | Future work (no particular order) |
+|---|---|---|---|
+| Makefile | Logo for app, taskbar | Settings interface | Ability to edit workspaces in-app |
+| Basic frontend UI | Backend interfaces (linked to below) | Button/ switch identifier | Macro creation in app |
+| Loading worksapces from easy file format | Communication interface | Relevant documentation | Macro recording |
+| Controls interface | Windows compatibility |  | Licence management |
+| Workspace interface/ menu bar |  |  | Docker container build |
+| Descriptive files |  |  | GitLab integration |
+| Macro controls (with headless macro-runner) |  |  | EOL tester app |
+| Initial backend integration |  |  | Logs |
+| Demonstration workspace(s) and macro |  |  |  |
 
 ## Build Information
 
