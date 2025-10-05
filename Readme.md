@@ -16,16 +16,28 @@ Currently for Linux OS only
 | 0.10 | 02/10/2025 | Workspace interface with macros, demonstration workspace, no backend |
 |0.20 | 03/10/2025 | Sample backend GPIO development, configuration external. Working on backend config and windows app version development |
 
-### In-development list
+### Development list
+
+Developed:
+ - Makefile
+ - Basic frontend UI
+ - Loading worksapces from easy file format
+ - Controls interface
+ - Workspace interface/ menu bar
+ - Descriptive files
+ - Macro controls
+   - Headless macro-runner
+ - Initial backend integration
+ - Demonstration workspace(s) and macro
 
 (in no particular order)
 For V1:
  - Logo for app, taskbar
  - Correct demo workspaces setup
  - Demonstration macros
- - Back-end interfaces
- - Settings interface
+ - Test backend interfaces (linked to below)
  - Communication interface
+ - Settings interface
  - Windows compatibility
  - Button/ switch identifier
  - Relevant documentation

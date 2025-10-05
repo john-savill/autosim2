@@ -37,8 +37,9 @@ $(TARGET_MACRO): $(MACRO_SOURCES)
 	$(CC) $(CFLAGS_MACRO) -o $(TARGET_MACRO) $(MACRO_SOURCES)
 
 # Windows Target executable
+# NOT CURRENTLY WORKING, removed --cflags, gtk.h needs to be mapped.
 $(TARGET_APP_WINDOWS): $(GUI_SOURCES)
-	x86_64-w64-mingw32-gcc pkg-config --cflags --libs gtk+-3.0 -o autosim2.exe $(GUI_SOURCES)
+	x86_64-w64-mingw32-gcc pkg-config --libs=gtk+-3.0 -o autosim2.exe $(GUI_SOURCES)
 
 # Clean
 clean:
