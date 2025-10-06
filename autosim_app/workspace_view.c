@@ -25,7 +25,8 @@ GtkWidget *create_workspace_view(AppData *app_data) {
     GtkWidget *config_menu = gtk_menu_new();
     GtkWidget *config_item = gtk_menu_item_new_with_label("Configuration");
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(config_item), config_menu);
-    GtkWidget *Communication_Configuration = gtk_menu_item_new_with_label("Communication Configuration"); //TODO
+    GtkWidget *Communication_Configuration = gtk_menu_item_new_with_label("Communication Configuration");
+    g_signal_connect(Communication_Configuration, "activate", G_CALLBACK(on_gpio_mapping_clicked), app_data);
     gtk_menu_shell_append(GTK_MENU_SHELL(config_menu), Communication_Configuration);
 
     GtkWidget *macro_menu = gtk_menu_new();
@@ -112,6 +113,21 @@ void create_workspace_from_definition(AppData *app_data) {
             
             if (control->type == CONTROL_BUTTON) {
                 GtkWidget *button = gtk_button_new_with_label(control->name);
+
+                //TODO: this is wrong. Changes both button and switch, all over app. Perhaps move to switch subsection and modify
+                ////To Set a noticably different colour from the switch:
+                //GtkCssProvider *provider = gtk_css_provider_new();
+                //// 2. Define CSS for the button
+                //const char *css_data = "button { background-color: blue; color: white; }";
+                //// 3. Load the CSS
+                //gtk_css_provider_load_from_data(provider, css_data, -1, NULL);
+                //GdkScreen *screen = gdk_screen_get_default();
+                //gtk_style_context_add_provider_for_screen(
+                //    screen,
+                //    GTK_STYLE_PROVIDER(provider),
+                //    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION
+                //);
+
                 char *button_data = g_strdup(control->name);
                 g_signal_connect(button, "clicked", G_CALLBACK(on_button_clicked), button_data);
                 gtk_box_pack_start(GTK_BOX(vbox), button, FALSE, FALSE, 0);
@@ -239,14 +255,6 @@ void on_new_workspace_menu_clicked(GtkWidget *widget, gpointer data) {
     show_welcome_screen(app_data);
 }
 
-void configure_communication(void) {
-
-}
-
-void application_settings(void) {
-
-}
-
 void application_information(GtkWidget *widget, gpointer data) {
     AppData *app_data = (AppData *)data;
     
@@ -255,7 +263,7 @@ void application_information(GtkWidget *widget, gpointer data) {
         GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
         GTK_MESSAGE_INFO,
         GTK_BUTTONS_OK,
-        "Application v0.20\n\n"
+        "Application v0.30\n\n"
         "This application is in the alpha version\n\n"
         "Current help can be found in the GitHub/ online Readme:\n"
         "https://github.com/john-savill/autosim2\n\n"

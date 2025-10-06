@@ -7,9 +7,10 @@
 #include <string.h>
 #include <glib.h>
 #include <glib/gstdio.h>
+#include <stdbool.h> 
 
 #define MAX_WINDOWS 10
-#define MAX_CONTROLS 20
+#define MAX_CONTROLS 100
 #define MAX_NAME_LENGTH 100
 
 // Control types
@@ -81,6 +82,17 @@ typedef struct {
     GHashTable *control_widgets;  // Maps control names to their widgets
 } AppData;
 
+// GPIO Mapping Dialog
+typedef struct {
+    char control_name[MAX_NAME_LENGTH];
+    int control_type;
+    int gpio_pin;
+    double min_value;
+    double max_value;
+    bool invert_logic;
+    bool is_mapped;
+} GPIOMappingEntry;
+
 // Macro declarations
 void init_macro_system(AppData *app_data);
 void cleanup_macro_system(AppData *app_data);
@@ -110,9 +122,15 @@ void on_save_workspace_clicked(GtkWidget *widget, gpointer data);
 void on_new_workspace_menu_clicked(GtkWidget *widget, gpointer data);
 
 // Other Menu bar functions
-void configure_communication(void);
-void application_settings(void);
+void application_settings(GtkWidget *widget, gpointer data);
 void application_information(GtkWidget *widget, gpointer data);
+
+// GPIO mapping functionality
+void show_gpio_mapping_dialog(AppData *app_data);
+void on_gpio_mapping_clicked(GtkWidget *widget, gpointer data);
+GtkWidget* create_gpio_mapping_dialog(AppData *app_data);
+void save_gpio_mappings_to_file(GPIOMappingEntry* mappings, int count);
+void load_gpio_mappings_from_file(GPIOMappingEntry* mappings, int* count);
 
 // Control callbacks
 void on_button_clicked(GtkWidget *widget, gpointer data);

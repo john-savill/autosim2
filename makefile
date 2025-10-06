@@ -15,7 +15,7 @@ TARGET_MACRO = macro_runner
 # TARGET_EOL = eol_tester
 
 # Source files
-GUI_SOURCES = autosim_app/main.c autosim_app/workspace_app.c autosim_app/welcome_sceen.c autosim_app/workspace_view.c autosim_app/controls.c autosim_app/file_operations.c autosim_app/macro.c
+GUI_SOURCES = autosim_app/main.c autosim_app/workspace_app.c autosim_app/welcome_sceen.c autosim_app/workspace_view.c autosim_app/controls.c autosim_app/file_operations.c autosim_app/macro.c autosim_app/gpio_mapping_dialog.c
 
 BACKEND_SOURCES = backend/gpio_backend.c backend/frontend_bridge.c
 BACKEND_TEST_SOURCES = backend/backend_test.c backend/gpio_backend.c
