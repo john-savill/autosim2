@@ -26,11 +26,11 @@ For V1:
 | Makefile | Logo for app, taskbar | Settings interface | Ability to edit workspaces in-app |
 | Basic frontend UI | Backend interfaces (linked to below) | Button/ switch identifier | Macro creation in app |
 | Loading worksapces from easy file format | Windows compatibility | Relevant documentation | Macro recording |
-| Controls interface |  |  | Licence management |
+| Controls interface |  | EOL tester app | Licence management |
 | Workspace interface/ menu bar |  |  | Docker container build |
 | Descriptive files |  |  | GitLab integration |
-| Macro controls (with headless macro-runner) |  |  | EOL tester app |
-| Initial backend integration |  |  | Logs |
+| Macro controls (with headless macro-runner) |  |  | Logs |
+| Initial backend integration |  |  |  |
 | Demonstration workspace(s) and macro |  |  |  |
 | Communication interface |  |  |  |
 

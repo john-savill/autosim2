@@ -16,7 +16,6 @@
 typedef struct {
     char title[MAX_NAME_LENGTH];
     int control_count;
-    ControlDef controls[MAX_CONTROLS];
 } WindowDef;
 
 // Workspace definition
@@ -34,7 +33,11 @@ typedef struct {
     GtkWidget *workspace_container;
     WorkspaceDef current_workspace;
     gboolean workspace_loaded;
-
 } AppData;
+
+void activate_application(GtkApplication *app, gpointer user_data);
+
+void show_welcome_screen(AppData *app_data);
+GtkWidget *create_welcome_screen(AppData *app_data);
 
 #endif

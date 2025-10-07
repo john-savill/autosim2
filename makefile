@@ -5,6 +5,7 @@ CFLAGS_BACKEND = -Wall -g -O2 -pthread
 CFLAGS_MACRO = -Wall -g
 LIBS_GUI = `pkg-config --libs gtk+-3.0` -pthread -lrt
 LIBS_BACKEND = -pthread -lrt
+LIBS_WINDOWS = `x86_64-w64-mingw32-pkg-config --cflags gtk+-3.0` #cflags or libs?
 
 # Target executables
 TARGET_APP = autosim2
@@ -37,9 +38,8 @@ $(TARGET_MACRO): $(MACRO_SOURCES)
 	$(CC) $(CFLAGS_MACRO) -o $(TARGET_MACRO) $(MACRO_SOURCES)
 
 # Windows Target executable
-# NOT CURRENTLY WORKING, removed --cflags, gtk.h needs to be mapped.
 $(TARGET_APP_WINDOWS): $(GUI_SOURCES)
-	x86_64-w64-mingw32-gcc pkg-config --libs=gtk+-3.0 -o autosim2.exe $(GUI_SOURCES)
+	x86_64-w64-mingw32-gcc `pkg-config --libs gtk+-3.0` -o autosim2.exe $(GUI_SOURCES) $(LIBS_WINDOWS)
 
 # Clean
 clean:
