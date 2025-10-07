@@ -30,9 +30,9 @@ For V1:
 | Workspace interface/ menu bar |  |  | Docker container build |
 | Descriptive files |  |  | GitLab integration |
 | Macro controls (with headless macro-runner) |  |  | Logs |
-| Initial backend integration |  |  |  |
-| Demonstration workspace(s) and macro |  |  |  |
-| Communication interface |  |  |  |
+| Initial backend integration |  |  | PWM control |
+| Demonstration workspace(s) and macro |  |  | CAN command control |
+| Communication interface |  |  | Crank level control |
 
 ## Build Information
 
