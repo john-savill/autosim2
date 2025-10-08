@@ -4,7 +4,7 @@
 
 Automotive simulator application, built with gtk.
 
-Currently for Linux OS only
+Currently for Linux OS only, tested on Raspberry CM5.
 
 ## Development Information
 
@@ -44,17 +44,13 @@ Build application with:
 ```
 make
 ```
-(will also make the independent macro_runner, review [Readme_macro.md](ind_macro/Readme_macro.md) for some more explanation)
+This will also build:
+ - The independent macro_runner, review [Readme_macro.md](ind_macro_app/Readme_macro.md) for further explanation.
+ - The independent EOL app, review [Readme_eol.md](eol_app/Readme_eol.md) for further explanation.
 
 Run with:
 ```
 ./autosim2
-```
-
-Create GPIO mapping configuration. Example:
-```
-echo "Speed Control,1,18,0.000000,100.000000,0" > gpio_mapping.conf
-echo "Main Power,3,20,0.000000,1.000000,0" >> gpio_mapping.conf
 ```
 
 ## User Information
@@ -65,7 +61,7 @@ echo "Main Power,3,20,0.000000,1.000000,0" >> gpio_mapping.conf
 
  - To run Macro it must be loaded in the workspace with corresponding controls.
 
- - Controls can be interacted with and will de logged in the terminal fo checking/ debugging.
+ - Controls can be interacted with and will de logged in the terminal for checking/ debugging.
 
 ## GPIO configuration
 
@@ -81,7 +77,7 @@ How It Works:
  - User moves "Speed Control" slider to 75%
  - Frontend calls backend with the new value
  - Backend looks up "Speed Control" in mapping file
- - Finds it maps to GPIO pin 18 with range 0-100
+ - Finds it, maps to GPIO pin 18 with range 0-100
  - Converts 75% to PWM duty cycle on GPIO 18
  - External hardware responds
 
