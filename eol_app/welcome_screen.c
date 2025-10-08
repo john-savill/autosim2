@@ -10,6 +10,15 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
     gtk_widget_set_halign(title, GTK_ALIGN_CENTER);
     gtk_box_pack_start(GTK_BOX(vbox), title, FALSE, FALSE, 20);
 
+    // Image
+    GtkWidget *image;
+    GdkPixbuf *pixbuf, *scaled_pixbuf;
+    image = gtk_image_new_from_file("resources/eol.png");
+    pixbuf = gdk_pixbuf_new_from_file("resources/eol.png", NULL);
+    scaled_pixbuf = gdk_pixbuf_scale_simple(pixbuf, 200, 200, GDK_INTERP_BILINEAR);
+    image = gtk_image_new_from_pixbuf(scaled_pixbuf);
+    gtk_box_pack_start(GTK_BOX(vbox), image, TRUE, TRUE, 0);
+
     // Description
     GtkWidget *description = gtk_label_new(
         "Welcome to the EOL Tester\n\n"
@@ -36,6 +45,9 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
     gtk_box_pack_start(GTK_BOX(button_box), load_button, FALSE, FALSE, 0);
     
     gtk_box_pack_start(GTK_BOX(vbox), button_box, FALSE, FALSE, 20);
-      
+    
+    g_object_unref(pixbuf); // Clean up the pixbuf
+    g_object_unref(scaled_pixbuf);
+
     return vbox;
 }

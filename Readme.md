@@ -46,7 +46,7 @@ make
 ```
 This will also build:
  - The independent macro_runner, review [Readme_macro.md](ind_macro_app/Readme_macro.md) for further explanation.
- - The independent EOL app, review [Readme_eol.md](eol_app/Readme_eol.md) for further explanation.
+ - The independent eol_tester, review [Readme_eol.md](eol_app/Readme_eol.md) for further explanation.
 
 Run with:
 ```
