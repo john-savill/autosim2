@@ -5,25 +5,25 @@ CFLAGS_BACKEND = -Wall -g -O2 -pthread
 CFLAGS_MACRO = -Wall -g
 LIBS_GUI = `pkg-config --libs gtk+-3.0` -pthread -lrt
 LIBS_BACKEND = -pthread -lrt
-LIBS_WINDOWS = `x86_64-w64-mingw32-pkg-config --cflags gtk+-3.0` #cflags or libs?
+LIBS_WINDOWS = `x86_64-w64-mingw32-pkg-config --cflags gtk+-3.0`
+#cflags or libs?
 
 # Target executables
 TARGET_APP = autosim2
 TARGET_APP_WINDOWS = windows_autosim2
 TARGET_BACKEND = gpio_backend_test
 TARGET_MACRO = macro_runner
-
-# TARGET_EOL = eol_tester
+TARGET_EOL = eol_tester
 
 # Source files
 GUI_SOURCES = autosim_app/main.c autosim_app/workspace_app.c autosim_app/welcome_sceen.c autosim_app/workspace_view.c autosim_app/controls.c autosim_app/file_operations.c autosim_app/macro.c autosim_app/gpio_mapping_dialog.c
-
 BACKEND_SOURCES = backend/gpio_backend.c backend/frontend_bridge.c
 BACKEND_TEST_SOURCES = backend/backend_test.c backend/gpio_backend.c
 MACRO_SOURCES = ind_macro_app/macro_runner.c
+EOL_SOURCES = eol_app/eol_app.c eol_app/main.c eol_app/welcome_sceen.c eol_app/workspace_view.c
 
 # Default target - build all applications
-all: $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO)
+all: $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO) $(TARGET_EOL)
 
 # GUI Application (with backend integration)
 $(TARGET_APP): $(GUI_SOURCES) $(BACKEND_SOURCES)
@@ -36,6 +36,10 @@ $(TARGET_BACKEND): $(BACKEND_TEST_SOURCES)
 # Headless macro runner
 $(TARGET_MACRO): $(MACRO_SOURCES)
 	$(CC) $(CFLAGS_MACRO) -o $(TARGET_MACRO) $(MACRO_SOURCES)
+
+# EOL tester 
+$(TARGET_EOL): $(EOL_SOURCES)
+	$(CC) `pkg-config --cflags gtk+-3.0` -Wall -g -o $(TARGET_EOL) $(EOL_SOURCES) `pkg-config --libs gtk+-3.0` -pthread
 
 # Windows Target executable
 $(TARGET_APP_WINDOWS): $(GUI_SOURCES)
@@ -60,4 +64,4 @@ test-macro: $(TARGET_MACRO)
 	./$(TARGET_MACRO) sample_headless_macro.csv
 
 # Ensure this is up to date and all potential make options are included 
-.PHONY: all clean install-deps gui test-backend test-macro windows_autosim2
+.PHONY: all clean eol_tester gui install-deps macro_runner test-backend test-macro windows_autosim2
