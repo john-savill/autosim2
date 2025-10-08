@@ -20,7 +20,7 @@ GUI_SOURCES = autosim_app/main.c autosim_app/workspace_app.c autosim_app/welcome
 BACKEND_SOURCES = backend/gpio_backend.c backend/frontend_bridge.c
 BACKEND_TEST_SOURCES = backend/backend_test.c backend/gpio_backend.c
 MACRO_SOURCES = ind_macro_app/macro_runner.c
-EOL_SOURCES = eol_app/eol_app.c eol_app/main.c eol_app/welcome_sceen.c eol_app/workspace_view.c
+EOL_SOURCES = eol_app/eol_app.c eol_app/main.c eol_app/welcome_screen.c eol_app/workspace_view.c
 
 # Default target - build all applications
 all: $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO) $(TARGET_EOL)
@@ -47,7 +47,7 @@ $(TARGET_APP_WINDOWS): $(GUI_SOURCES)
 
 # Clean
 clean:
-	rm -f $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO)
+	rm -f $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO) $(TARGET_EOL)
 
 # Install dependencies
 install-deps:

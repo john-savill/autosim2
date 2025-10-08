@@ -1,6 +1,7 @@
 autosim2
 macro_runner
 gpio_backend_test
+eol_tester
 windows_note.md
 Real-Time GPIO Backend for Raspberry Pi.md
 .vscode
