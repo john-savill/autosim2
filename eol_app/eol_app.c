@@ -32,3 +32,23 @@ void show_welcome_screen(AppData *app_data) {
     gtk_widget_show_all(app_data->main_window);
     gtk_window_set_title(GTK_WINDOW(app_data->main_window), "EOL Tester alpha - Welcome");
 }
+
+void show_workspace_view(AppData *app_data) {
+    if (app_data->welcome_screen) {
+        gtk_container_remove(GTK_CONTAINER(app_data->main_window), app_data->welcome_screen);
+        app_data->welcome_screen = NULL;
+    }
+    
+    if (app_data->workspace_view) {
+        gtk_container_remove(GTK_CONTAINER(app_data->main_window), app_data->workspace_view);
+    }
+    
+    app_data->workspace_view = create_workspace_view(app_data);
+    gtk_container_add(GTK_CONTAINER(app_data->main_window), app_data->workspace_view);
+    
+    gtk_widget_show_all(app_data->main_window);
+    
+    char title[200];
+    snprintf(title, sizeof(title), "EOL tester - %s", app_data->current_workspace.name);
+    gtk_window_set_title(GTK_WINDOW(app_data->main_window), title);
+}

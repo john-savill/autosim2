@@ -37,7 +37,14 @@ typedef struct {
 
 void activate_application(GtkApplication *app, gpointer user_data);
 
+// Welcome screen functions
 void show_welcome_screen(AppData *app_data);
 GtkWidget *create_welcome_screen(AppData *app_data);
+void on_new_workspace_clicked(GtkWidget *widget, gpointer data);
+
+// Workspace functions
+GtkWidget *create_workspace_view(AppData *app_data);
+void show_workspace_view(AppData *app_data);
+void create_default_workspace(AppData *app_data);
 
 #endif

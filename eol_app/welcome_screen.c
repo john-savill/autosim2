@@ -36,7 +36,7 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
     
     GtkWidget *new_button = gtk_button_new_with_label("Create New Workspace");
     gtk_widget_set_size_request(new_button, 200, 50);
-    //g_signal_connect(new_button, "clicked", G_CALLBACK(on_new_workspace_clicked), app_data);
+    g_signal_connect(new_button, "clicked", G_CALLBACK(on_new_workspace_clicked), app_data);
     gtk_box_pack_start(GTK_BOX(button_box), new_button, FALSE, FALSE, 0);
     
     GtkWidget *load_button = gtk_button_new_with_label("Load Existing Workspace");
@@ -50,4 +50,12 @@ GtkWidget *create_welcome_screen(AppData *app_data) {
     g_object_unref(scaled_pixbuf);
 
     return vbox;
+}
+
+void on_new_workspace_clicked(GtkWidget *widget, gpointer data) {
+    AppData *app_data = (AppData *)data;
+    
+    create_default_workspace(app_data);
+    app_data->workspace_loaded = TRUE;
+    show_workspace_view(app_data);
 }
