@@ -4,7 +4,7 @@
 
 Automotive simulator application, built with gtk.
 
-Currently for Linux OS only, tested on Raspberry CM5.
+Currently for Linux OS only, tested on Raspberry CM5 with develpment board.
 
 ## Development Information
 
@@ -16,6 +16,7 @@ Currently for Linux OS only, tested on Raspberry CM5.
 | 0.10 | 02/10/2025 | Workspace interface with macros, demonstration workspace, no backend |
 | 0.20 | 03/10/2025 | Sample backend GPIO development, configuration external. Working on backend config and windows app version development |
 | 0.30 | 06/10/2025 | Configuration window for GPIO config. More description of use. |
+| 0.31 | 09/10/2025 | Smaller text updates and EOL_tester update from release feedback |
 
 ### Development list
 
@@ -24,7 +25,7 @@ For V1:
 | __Developed__ | Testing | In Development (no particular order) | Future work (no particular order) |
 |---|---|---|---|
 | Makefile | Logo for app, taskbar | Settings interface | Ability to edit workspaces in-app |
-| Basic frontend UI | Backend interfaces (linked to below) | Button/ switch identifier | Macro creation in app |
+| Basic frontend UI | Driver interfaces | Button/ switch identifier | Macro creation in app |
 | Loading worksapces from easy file format | Windows compatibility | Relevant documentation | Macro recording |
 | Controls interface |  | EOL tester app | Licence management |
 | Workspace interface/ menu bar |  |  | Docker container build |
