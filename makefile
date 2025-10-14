@@ -50,6 +50,7 @@ clean:
 	rm -f $(TARGET_APP) $(TARGET_BACKEND) $(TARGET_MACRO) $(TARGET_EOL)
 
 # Install dependencies
+# To note: mingw packages are just for the windows build and not required for any Linux build. Windows buid not currently working
 install-deps:
 	sudo apt install libgtk-3-dev pkg-config build-essential mingw-w64 gcc-mingw-w64 mingw-w64-tools
 
